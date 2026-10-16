@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/spike_trap.gd" id="1_spike_trap"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_spikes"]
+size = Vector2(84, 24)
+
+[node name="SpikeTrap" type="Area2D"]
+position = Vector2(980, 590)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_spike_trap")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_spikes")
+
+[node name="SpikeLeft" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-42, 0, -33, -27, -23, 0)
+color = Color(0.43, 0.55, 0.71, 1)
+
+[node name="SpikeMiddleLeft" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-24, 0, -12, -32, 0, 0)
+color = Color(0.57, 0.68, 0.82, 1)
+
+[node name="SpikeMiddleRight" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(0, 0, 12, -32, 24, 0)
+color = Color(0.48, 0.6, 0.77, 1)
+
+[node name="SpikeRight" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(23, 0, 33, -27, 42, 0)
+color = Color(0.39, 0.52, 0.69, 1)
+
+[node name="Edge" type="Line2D" parent="."]
+points = PackedVector2Array(-42, 0, -23, 0, -12, 0, 0, 0, 12, 0, 24, 0, 42, 0)
+width = 2.0
+default_color = Color(0.21, 0.72, 0.9, 0.8)
